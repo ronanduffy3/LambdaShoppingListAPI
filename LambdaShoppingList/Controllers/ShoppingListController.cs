@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LambdaShoppingList.Controllers
 {
+    // The route is where we target the app then, can be seen demonstrated in the working example projet
     [Route("v1/shoppingList")]
     [ApiController]
     public class ShoppingListController : ControllerBase
@@ -20,6 +21,8 @@ namespace LambdaShoppingList.Controllers
             _shoppingListService = shoppingListService;
         }
 
+        // Below I define the three API requests that I created, get, delete
+       
         [HttpGet]
         public IActionResult GetShoppingList()
         {

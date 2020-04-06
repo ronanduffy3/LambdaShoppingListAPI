@@ -30,8 +30,11 @@ namespace LambdaShoppingList
         {
             services.AddControllers();
 
+            // I needed to create an S3 bucket to deploy the lambda function
             // Add S3 to the ASP.NET Core dependency injection framework.
             services.AddAWSService<Amazon.S3.IAmazonS3>();
+
+            // Injected the service 
             services.AddSingleton<IShoppingListService, ShoppingListService>();
         }
 

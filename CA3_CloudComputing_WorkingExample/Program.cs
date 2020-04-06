@@ -34,10 +34,14 @@ namespace CA3_CloudComputing_WorkingExample
 
         public static void POSTMethod()
          {
+            // Creates a request with the link to our lambda function and using the HTTPWebRequest library for the connection.
             var request = (HttpWebRequest)WebRequest.Create("https://xx5jwpkp9b.execute-api.eu-west-1.amazonaws.com/Prod/v1/shoppingList");
+            // Specifys that its a JSON request so we can use POST, GET and DELETE
             request.ContentType = "application/json";
+            // Defines its a POST request which is writing data
             request.Method = "POST";
 
+            // Creates an instance of the StreamWriter class to write and then use the JavascriptSerializer to format it as JSON
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = new JavaScriptSerializer().Serialize(new
@@ -48,7 +52,8 @@ namespace CA3_CloudComputing_WorkingExample
 
                 streamWriter.Write(json);
             }
-
+            
+            // Gets the server response and some light error handling
             var response = (HttpWebResponse)request.GetResponse();
             try
             {
@@ -67,10 +72,12 @@ namespace CA3_CloudComputing_WorkingExample
         
         public static void DELETEMethod()
         {
+            // Similar to above I created a request and specified the type which is JSON and then what sort of request - DELETE
             var request = (HttpWebRequest)WebRequest.Create("https://xx5jwpkp9b.execute-api.eu-west-1.amazonaws.com/Prod/v1/shoppingList");
             request.ContentType = "application/json";
             request.Method = "DELETE";
 
+            // use StreamWriter and JavaScriptSerializer same as above and performs the operation
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
                 string json = new JavaScriptSerializer().Serialize(new
@@ -82,6 +89,7 @@ namespace CA3_CloudComputing_WorkingExample
                 streamWriter.Write(json);
             }
 
+            // Some light error handling, same as above
             var response = (HttpWebResponse)request.GetResponse();
             try
             {
@@ -98,6 +106,7 @@ namespace CA3_CloudComputing_WorkingExample
 
         public static void GETMethod()
         {
+            // Similar again as above, except didn't need to define the sort of request 
             var request = (HttpWebRequest)WebRequest.Create("https://xx5jwpkp9b.execute-api.eu-west-1.amazonaws.com/Prod/v1/shoppingList");
             var response = (HttpWebResponse)request.GetResponse();
             string responseString;
@@ -107,7 +116,7 @@ namespace CA3_CloudComputing_WorkingExample
                 {
                     responseString = reader.ReadToEnd();
                 }
-
+                // Write the response to the command window.
                 if(responseString != null) { 
                 Console.WriteLine(responseString);
                 }
