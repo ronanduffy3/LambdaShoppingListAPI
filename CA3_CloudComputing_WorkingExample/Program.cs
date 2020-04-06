@@ -14,7 +14,21 @@ namespace CA3_CloudComputing_WorkingExample
     {
         static void Main(string[] args)
         {
-            
+            DELETEMethod();
+
+            POSTMethod();
+            Console.WriteLine("Added the items successfully");
+
+            Console.WriteLine("Press enter to retrieve items from the list");
+            Console.ReadLine();
+            GETMethod();
+
+            Console.WriteLine("Press enter to delete items from the list");
+            Console.ReadLine();
+            DELETEMethod();
+
+            Console.WriteLine("Press enter to show the items have been removed from the list");
+            GETMethod();
             
         }
 
@@ -29,7 +43,7 @@ namespace CA3_CloudComputing_WorkingExample
                 string json = new JavaScriptSerializer().Serialize(new
                 {
                     Name = "Water",
-                    Quantity = 1
+                    Quantity = 3
                 });
 
                 streamWriter.Write(json);
@@ -79,6 +93,29 @@ namespace CA3_CloudComputing_WorkingExample
             catch
             {
                 Console.WriteLine("Exception");
+            }
+        }
+
+        public static void GETMethod()
+        {
+            var request = (HttpWebRequest)WebRequest.Create("https://xx5jwpkp9b.execute-api.eu-west-1.amazonaws.com/Prod/v1/shoppingList");
+            var response = (HttpWebResponse)request.GetResponse();
+            string responseString;
+            using (var stream = response.GetResponseStream())
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    responseString = reader.ReadToEnd();
+                }
+
+                if(responseString != null) { 
+                Console.WriteLine(responseString);
+                }
+                else
+                {
+                    Console.WriteLine("responseString string is null, no items on the list");
+                    Console.ReadLine();
+                }
             }
         }
 
