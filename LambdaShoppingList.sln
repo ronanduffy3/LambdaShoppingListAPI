@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaShoppingList", "LambdaShoppingList\LambdaShoppingList.csproj", "{6A70807E-0EF9-4A08-B895-345D23AE4441}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA3_CloudComputing_WorkingExample", "CA3_CloudComputing_WorkingExample\CA3_CloudComputing_WorkingExample.csproj", "{6C74ADC8-6129-4845-AB7D-2CAE00777BC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6A70807E-0EF9-4A08-B895-345D23AE4441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A70807E-0EF9-4A08-B895-345D23AE4441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A70807E-0EF9-4A08-B895-345D23AE4441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C74ADC8-6129-4845-AB7D-2CAE00777BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C74ADC8-6129-4845-AB7D-2CAE00777BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C74ADC8-6129-4845-AB7D-2CAE00777BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C74ADC8-6129-4845-AB7D-2CAE00777BC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
